@@ -6,11 +6,13 @@
 /*   By: abelhadj <abelhadj@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 04:46:38 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/10/13 05:44:08 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/10/15 21:57:29 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int Fixed::FractBit = 8;
 
 Fixed::Fixed(){
 	std::cout << "Default constructor called" << std::endl;

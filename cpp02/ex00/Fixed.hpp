@@ -6,7 +6,7 @@
 /*   By: abelhadj <abelhadj@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 16:07:30 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/10/12 21:47:27 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/10/15 21:56:27 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ class Fixed
 {
 private:
 	int	FixPointVal;
-	static const int FractBit = 8;
+	static const int FractBit;
 	
 public:
 	Fixed();
