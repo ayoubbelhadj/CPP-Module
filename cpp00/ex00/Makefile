@@ -6,13 +6,13 @@
 #    By: abelhadj <abelhadj@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/20 17:29:04 by abelhadj          #+#    #+#              #
-#    Updated: 2023/09/29 21:38:54 by abelhadj         ###   ########.fr        #
+#    Updated: 2023/10/16 22:40:06 by abelhadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= megaphone
 	
-CC			= c++
+CPP			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
@@ -24,11 +24,11 @@ OBJ			= $(FILES:=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(OBJ) -o $(NAME)
+	@$(CPP) $(OBJ) -o $(NAME)
 	@printf " - Executable ready.\n"
 
 %.o: %.cpp
-	@$(CC) $(FLAGS) -c $< -o $@
+	@$(CPP) $(FLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJDIR) $(OBJ)
