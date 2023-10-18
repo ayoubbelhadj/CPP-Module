@@ -6,13 +6,13 @@
 #    By: abelhadj <abelhadj@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/15 21:59:19 by abelhadj          #+#    #+#              #
-#    Updated: 2023/10/16 04:08:40 by abelhadj         ###   ########.fr        #
+#    Updated: 2023/10/16 22:40:06 by abelhadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= ClapTrap
 	
-CC			= c++
+CPP			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
@@ -25,11 +25,11 @@ HEADER		= ClapTrap.hpp ScavTrap.hpp
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
-	@$(CC) $(OBJ) -o $(NAME)
+	@$(CPP) $(OBJ) -o $(NAME)
 	@printf " - Executable ready.\n"
 
 %.o: %.cpp $(HEADER)
-	@$(CC) $(FLAGS) -c $< -o $@
+	@$(CPP) $(FLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJDIR) $(OBJ)

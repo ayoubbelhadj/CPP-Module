@@ -6,7 +6,7 @@
 /*   By: abelhadj <abelhadj@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 04:14:37 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/10/16 04:52:07 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/10/18 05:51:13 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ FragTrap::FragTrap(){
 }
 
 FragTrap& FragTrap::operator=(const FragTrap &other){
-	this->Name = other.Name;
-	this->HitPoints = other.HitPoints;
-	this->EnergyPoints = other.EnergyPoints;
-	this->AttackDamage = other.AttackDamage;
+	if (this != &other){
+		this->Name = other.Name;
+		this->HitPoints = other.HitPoints;
+		this->EnergyPoints = other.EnergyPoints;
+		this->AttackDamage = other.AttackDamage;
+	}
 	std::cout << "Copy of FragTrap " << other.Name << " is live now." << std::endl;
 	return *this;
 }
