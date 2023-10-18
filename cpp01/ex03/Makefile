@@ -6,13 +6,13 @@
 #    By: abelhadj <abelhadj@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/28 14:48:33 by abelhadj          #+#    #+#              #
-#    Updated: 2023/09/28 14:50:23 by abelhadj         ###   ########.fr        #
+#    Updated: 2023/10/16 22:40:06 by abelhadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= Violence
 	
-CC			= c++
+CPP			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
@@ -25,11 +25,11 @@ HEADER		= Weapon.hpp HumanB.hpp HumanA.hpp
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
-	@$(CC) $(OBJ) -o $(NAME)
+	@$(CPP) $(OBJ) -o $(NAME)
 	@printf " - Executable ready.\n"
 
 %.o: %.cpp $(HEADER)
-	@$(CC) $(FLAGS) -c $< -o $@
+	@$(CPP) $(FLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJDIR) $(OBJ)
