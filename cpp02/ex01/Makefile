@@ -6,13 +6,13 @@
 #    By: abelhadj <abelhadj@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/13 04:42:40 by abelhadj          #+#    #+#              #
-#    Updated: 2023/10/13 04:42:42 by abelhadj         ###   ########.fr        #
+#    Updated: 2023/10/16 22:40:06 by abelhadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= Fixed
 	
-CC			= c++
+CPP			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
@@ -25,11 +25,11 @@ HEADER		= Fixed.hpp
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
-	@$(CC) $(OBJ) -o $(NAME)
+	@$(CPP) $(OBJ) -o $(NAME)
 	@printf " - Executable ready.\n"
 
 %.o: %.cpp $(HEADER)
-	@$(CC) $(FLAGS) -c $< -o $@
+	@$(CPP) $(FLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJDIR) $(OBJ)
