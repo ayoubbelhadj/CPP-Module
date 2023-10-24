@@ -6,7 +6,7 @@
 /*   By: abelhadj <abelhadj@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 22:41:53 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/10/17 03:29:31 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:14:17 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 #include "WrongCat.hpp"
 #include "WrongAnimal.hpp"
 
-int	main()
-{
+int	main(){
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();

@@ -6,14 +6,13 @@
 /*   By: abelhadj <abelhadj@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 03:13:24 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/10/17 03:14:28 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:15:19 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal(){
-	this->type = "WRONGANIMAL";
+WrongAnimal::WrongAnimal(): type("WRONGANIMAL"){
 	std::cout << "WrongAnimal Default constructor called" << std::endl;
 }
 
@@ -24,13 +23,13 @@ WrongAnimal::WrongAnimal(const WrongAnimal& other){
 
 WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& other){
 	std::cout << "WrongAnimal Copy assignment operator called" << std::endl;
-	this->type = other.type;
+	if (this != &other)
+		this->type = other.type;
 	return (*this);
 }
 
-WrongAnimal::~WrongAnimal()
-{
-	std::cout << "WrongAnimal Destructor operator called" << std::endl;
+WrongAnimal::~WrongAnimal(){
+	std::cout << "WrongAnimal Destructor called" << std::endl;
 }
 
 void	WrongAnimal::setType(std::string type){
@@ -42,7 +41,6 @@ std::string	WrongAnimal::getType(void) const{
 	return(this->type);
 }
 
-void WrongAnimal::makeSound() const
-{
+void WrongAnimal::makeSound() const{
 	std::cout << "WrongAnimal Sound!" << std::endl;
 }
