@@ -6,7 +6,7 @@
 /*   By: abelhadj <abelhadj@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 22:42:41 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/10/24 20:28:42 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/10/27 21:38:42 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ Dog& Dog::operator=(const Dog& other){
 	if (this != &other)
 	{
 		this->type = other.type;
-		if (this->brain)
-			delete this->brain;
 		this->brain = new Brain(*other.brain);
 	}
 	return (*this);
