@@ -4,11 +4,11 @@ CPP			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
-FILES		= main Bureaucrat 
-
+FILES		= main Bureaucrat AForm PresidentialPardonForm RobotomyRequestForm ShrubberyCreationForm
+ 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(FILES:=.o)
-HEADER		= Bureaucrat.hpp
+HEADER		= Bureaucrat.hpp AForm.hpp PresidentialPardonForm.hpp  RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
 
 all: $(NAME)
 
@@ -25,6 +25,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME)
+	@$(RM) *_shrubbery
 	@printf " - Executable removed.\n"
 
 re: fclean all

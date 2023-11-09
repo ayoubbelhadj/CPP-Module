@@ -1,14 +1,14 @@
 NAME		= Bureaucrat
 	
 CPP			= c++
-FLAGS		= -Wall -Wextra -Werror -std=c++98
+FLAGS		= #-Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
-FILES		= main Bureaucrat 
+FILES		= main Bureaucrat Form
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(FILES:=.o)
-HEADER		= Bureaucrat.hpp
+HEADER		= Bureaucrat.hpp Form.cpp
 
 all: $(NAME)
 

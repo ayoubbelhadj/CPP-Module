@@ -2,13 +2,12 @@
 
 int	main(){
 	try {
-        Bureaucrat bureaucrat;
-
+        Bureaucrat bureaucrat("Ayoub", 150);
         std::cout << bureaucrat << std::endl;
-
         bureaucrat.GradeInc();
-        // bureaucrat.decrementGrade();
-    } catch (std::exception& e) {
+        bureaucrat.GradeDec();
+    }
+    catch (std::exception& e) {
         std::cout << e.what() << std::endl;
     }
 }
