@@ -6,7 +6,7 @@
 /*   By: abelhadj <abelhadj@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:46:45 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/11/09 14:40:15 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/11/10 14:03:45 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Form
 private:
 	const std::string	_Name;
 	int					_GradeSign;
-	int				
-	_GradeExec;	bool				_Sign;
+	int					_GradeExec;
+	bool				_Sign;
 public:
 	Form();
 	Form(const std::string Name, int GradeSign, int GradeExec);
