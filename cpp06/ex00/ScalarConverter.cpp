@@ -101,8 +101,8 @@ void	_castchar(std::string arg){
 	{
 		std::cout << "char: " << "'" << static_cast<char>(arg[0]) << "'" << std::endl;
 		std::cout << "int: " << static_cast<int>(arg[0]) << std::endl;
-		std::cout << "float: " << std::fixed << std::setprecision(2)<< static_cast<float>(std::atoi(arg.c_str())) << "f" << std::endl;
-		std::cout << "double: " << std::fixed << std::setprecision(2)<< static_cast<double>(std::atoi(arg.c_str())) << std::endl; 
+		std::cout << "float: " << std::fixed << std::setprecision(2)<< static_cast<float>(arg[0]) << "f" << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(2)<< static_cast<double>(arg[0]) << std::endl; 
 	}
 	else
 	{
@@ -128,7 +128,7 @@ void	_castint(std::string arg){
 void	_castfloat(std::string arg){
 	float	value = std::atof(arg.c_str());
 
-	if (isprint(static_cast<char>(value)))
+	if (isprint(value))
 		std::cout << "char: " << "'" << static_cast<char>(value) << "'" << std::endl;
 	else
 		std::cout << "char: " << "Non displayable" << std::endl;
@@ -144,7 +144,7 @@ void	_castfloat(std::string arg){
 void	_castdouble(std::string arg){
 	double	value = std::atof(arg.c_str());
 
-	if (isprint(static_cast<char>(value)))
+	if (isprint(value))
 		std::cout << "char: " << "'" << static_cast<char>(value) << "'" << std::endl;
 	else
 		std::cout << "char: " << "Non displayable" << std::endl;
