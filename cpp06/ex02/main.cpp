@@ -14,4 +14,7 @@ int	main(){
 	identify(*x);
 	std::cout << "&y = ";
 	identify(*y);
+	
+	delete x;
+	delete y;
 }
