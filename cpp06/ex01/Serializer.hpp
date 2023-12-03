@@ -15,11 +15,13 @@ typedef struct Data
 
 class Serializer
 {
+private:
+	Serializer();
 public:
 	Serializer(Serializer& obj);
 	Serializer& operator=(Serializer& obj);
-	Serializer();
 	~Serializer();
+	
 	static uintptr_t serialize(Data* ptr);
 	static Data* deserialize(uintptr_t raw);
 };

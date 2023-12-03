@@ -6,7 +6,7 @@
 /*   By: abelhadj <abelhadj@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:06:37 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/11/17 21:08:46 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/11/26 00:29:05 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ typedef enum e_type
 class ScalarConverter
 {
 private:
-
-public:
 	ScalarConverter();
+public:
 	ScalarConverter(const ScalarConverter& obj);
 	ScalarConverter& operator=(const ScalarConverter& obj);
 	~ScalarConverter();

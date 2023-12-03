@@ -14,18 +14,18 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
 	@$(CPP) $(OBJ) -o $(NAME)
-	@printf " - Executable ready.\n"
+	@echo " - Executable ready."
 
 %.o: %.cpp $(HEADER)
 	@$(CPP) $(FLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJ)
-	@printf " - Object files removed.\n"
+	@echo " - Object files removed."
 
 fclean: clean
 	@$(RM) $(NAME)
-	@printf " - Executable removed.\n"
+	@echo " - Executable removed."
 
 re: fclean all
 
