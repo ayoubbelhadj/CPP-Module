@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 class NotFound : public std::exception
 {
@@ -14,16 +15,13 @@ class NotFound : public std::exception
 
 template <typename T>
 void easyfind(T& container, int value){
-    typename    T::iterator itr = container.begin();
-
-    while (itr != container.end()){
-        if (*itr == value){
-            std::cout << "The value [ " << value << " ] is there." << std::endl;
-            return ;
-        }
-        itr++;
-    }
-    throw NotFound();
+    typename    T::iterator itr;
+    
+    itr = std::find(container.begin(), container.end(), value);
+    if (itr != container.end())
+        std::cout << "The value [ " << value << " ] is there." << std::endl;
+    else
+        throw NotFound();
 }
 
 #endif
