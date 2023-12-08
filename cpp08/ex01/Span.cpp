@@ -32,6 +32,7 @@ void	Span::addNumber(int nbr){
 }
 
 size_t Span::shortestSpan() const{
+    std::vector<int> lsttmp = lst;
     size_t shortSpan;
     size_t tmp;
     size_t  i;
@@ -39,9 +40,10 @@ size_t Span::shortestSpan() const{
     if (lst.size() < 2)
         throw SpanExeption();
     i = 1;
-    shortSpan = INT_MAX;
-    while (i < lst.size()){
-        tmp = std::abs(lst[i] - lst[i - 1]);
+    std::sort(lsttmp.begin(), lsttmp.end());
+    shortSpan = longestSpan();
+    while (i < lsttmp.size()){
+        tmp = std::abs(lsttmp[i] - lsttmp[i - 1]);
         shortSpan = std::min(shortSpan, tmp);
         i++;
     }
@@ -50,18 +52,14 @@ size_t Span::shortestSpan() const{
 
 size_t Span::longestSpan() const{
     size_t longeSpan;
-    size_t tmp;
-    size_t  i;
+    size_t max;
+    size_t min;
 
     if (lst.size() < 2)
         throw SpanExeption();
-    i = 1;
-    longeSpan = 0;
-    while (i < lst.size()){
-        tmp = std::abs(lst[i] - lst[i - 1]);
-        longeSpan = std::max(longeSpan, tmp);
-        i++;
-    }
+    max = *std::max_element(lst.begin(), lst.end());
+    min = *std::min_element(lst.begin(), lst.end());
+    longeSpan = max - min;
     return longeSpan;
 }
 
