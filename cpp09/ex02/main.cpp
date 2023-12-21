@@ -13,8 +13,8 @@ int	main(int ac, char **av){
 			deq.sort();
 			std::cout << "After:\t";
 			deq.DataDisplay();
-			vec.TimeDisplay();
-			deq.TimeDisplay();
+			vec.TimeDisplay("std::vector<int>");
+			deq.TimeDisplay("std::deque<int> ");
 		}
 		catch(const std::exception& e)
 		{

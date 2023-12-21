@@ -22,21 +22,19 @@ private:
 	double		time;
 
 	bool 	isnbr(std::string str);
-	bool	compar(p_type &a, p_type &b);
 	void	generate(size_t size, container &seqnbr);
-	int		binary_search(int target, int start, int end);
-	void	getType(std::vector<int>);
-	void	getType(std::deque<int>);
 
 	std::vector< p_type >	pairs;
 	PmergeMe(void);
+
 public:
 	PmergeMe(char **av);
 	PmergeMe(const PmergeMe& obj);
 	PmergeMe& operator=(const PmergeMe& obj);
 	~PmergeMe(void);
+
 	void	DataDisplay(void);
-	void	TimeDisplay(void);
+	void	TimeDisplay(std::string ctype);
 	void	sort(void);
 };
 
@@ -70,6 +68,8 @@ PmergeMe<container>::PmergeMe(char **av){
 	}
 	if (data.size() == 1)
 		throw std::invalid_argument("You have one number nothing to sort.");
+	
+	// step 5
 	generate(data.size(), seqnbr);
 }
 
@@ -78,23 +78,10 @@ template <typename container>
 PmergeMe<container>::~PmergeMe(){
 }
 
-
 template <typename container>
-void PmergeMe<container>::getType(std::deque<int> d){
-	(void)d;
-	std::cout << "std::deque<int> : ";
-}
-
-template <typename container>
-void PmergeMe<container>::getType(std::vector<int> d){
-	(void)d;
-	std::cout << "std::vector<int> : ";
-}
-template <typename container>
-void PmergeMe<container>::TimeDisplay(void){
+void PmergeMe<container>::TimeDisplay(std::string ctype){
 	std::cout << "Time to process a range of " << data.size();
-	std::cout << " elements with ";
-	getType(data);
+	std::cout << " elements with " << ctype << " : ";
 	std::cout << std::fixed << time << " us";
 	std::cout << std::endl;
 }
@@ -138,27 +125,6 @@ void	PmergeMe<container>::DataDisplay(void){
 	std::cout << std::endl;
 }
 
-template <typename container>
-int PmergeMe<container>::binary_search(int target, int start, int end){
-	int	mid;
-
-	mid = start + (end - start) / 2;
-	if (start == end){
-		if (data[mid] >= target)
-			return mid;
-		else
-			return end;
-	}
-	else if(data[mid] >= target)
-		return binary_search(target, start, mid);
-	else 
-		return binary_search(target, mid + 1, end);
-}
-
-template <typename container>
-bool	PmergeMe<container>:: compar(p_type &a, p_type &b){
-	return a.second > b.second;
-}
 
 template <typename container>
 void	PmergeMe<container>::sort(void){
@@ -171,21 +137,25 @@ void	PmergeMe<container>::sort(void){
 	c_start = std::clock();
 	if (data.size() == 0)
 		throw std::invalid_argument("Error: Nothing to sort.");
+
+	// step 1
 	if (data.size() % 2 != 0){
 		flag = 1;
 		tmpLast = data.back();
 		data.pop_back();
 	}
 
+	// step 2
 	for (size_t i = 0; i < data.size(); i+=2){
 		if (data[i] < data[i + 1])
 			std::swap(data[i], data[i + 1]);
 		pairs.push_back(std::make_pair(data[i], data[i + 1]));
 	}
 
+	// step 3
 	std::sort(pairs.begin(), pairs.end());
 	
-
+	// step 4
 	data.clear();
 	data.push_back(pairs[0].second);
 
@@ -196,15 +166,17 @@ void	PmergeMe<container>::sort(void){
 	for (size_t i = 0; i < pairs.size(); i++)
 		pend.push_back(pairs[i].second);
 
+	// step 6
 	for (size_t i = 0; i < seqnbr.size(); i++){
 		if (seqnbr[i] - 1 >= int(pairs.size()))
 			continue ;
-		index = binary_search(pend[seqnbr[i] - 1], 0, data.size());
+		index = std::lower_bound(data.begin(), data.end(), pend[seqnbr[i] - 1]) - data.begin();
 		data.insert(data.begin() + index, pend[seqnbr[i] - 1]);
 	}
 
+	// step 7
 	if (flag){
-		index = binary_search(tmpLast, 0, data.size());
+		index = std::lower_bound(data.begin(), data.end(), tmpLast) - data.begin();
 		data.insert(data.begin() + index, tmpLast);
 	}
 	c_end = std::clock();

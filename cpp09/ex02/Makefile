@@ -4,7 +4,7 @@ CPP			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
-FILES		= main  PmergeMe
+FILES		= main
  
 SRC			= $(FILES:=.cpp)
 OBJ			= $(FILES:=.o)
