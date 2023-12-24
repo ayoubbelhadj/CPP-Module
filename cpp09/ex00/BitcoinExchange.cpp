@@ -99,7 +99,7 @@ bool	BitcoinExchange::ValueCheck(std::string value){
 		return 1;
 	}
 	else if (nbr > 1000){
-		std::cerr << "Error: too large a number." << std::endl;
+		std::cerr << "Error: too large number." << std::endl;
 		return 1;
 	}
 	return 0;
